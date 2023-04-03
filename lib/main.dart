@@ -7,6 +7,6 @@ void main() {
     initialRoute: '/splash',
     routes: {'/splash': (context) => Splashscreen()},
     debugShowCheckedModeBanner: false,
-    home: Homepage(),
+    home: const Homepage(),
   ));
 }
