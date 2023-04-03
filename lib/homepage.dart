@@ -1,6 +1,9 @@
 import 'package:animatedapp/geolocator/geolocator.dart';
 import 'package:animatedapp/globals/appimages.dart';
 import 'package:animatedapp/network/weathereport.dart';
+import 'package:animatedapp/widgets/weatherfeatures.dart';
+import 'package:animatedapp/widgets/weatherhead.dart';
+import 'package:animatedapp/widgets/weatherstatics.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -30,180 +33,15 @@ class _HomepageState extends State<Homepage> {
             builder: (context, snapshot) {
               return Column(
                 children: [
-                  Container(
-                    height: 600,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40),
-                        gradient: const LinearGradient(
-                            colors: [Colors.blue, Colors.purple])),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 50),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            '${data.localtime}',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            '${data?.name}',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            '${data.country}',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Image.network('https:${data.icon}'),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                            '${data.text}',
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                            '${data.temp}',
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              Expanded(
-                                  child: Column(
-                                children: [
-                                  Appimage.windicon,
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    '${data.wind_kph}',
-                                    style: const TextStyle(color: Colors.white),
-                                  ),
-                                ],
-                              )),
-                              Expanded(
-                                  child: Column(
-                                children: [
-                                  Appimage.humidityicon,
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text('${data.humidity}',
-                                      style: TextStyle(color: Colors.white)),
-                                ],
-                              )),
-                              Expanded(
-                                  child: Column(
-                                children: [
-                                  Appimage.directionicon,
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text('${data.wind_dir}',
-                                      style: TextStyle(color: Colors.white)),
-                                ],
-                              )),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                  Weatherhead(data: data),
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                          child: Column(
-                        children: [
-                          Text('Wind degree',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                          Text('${data.wind_degree}',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                        ],
-                      )),
-                      Expanded(
-                          child: Column(
-                        children: [
-                          Text('Pressure mb',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                          Text('${data.pressure_mb}',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                        ],
-                      )),
-                      Expanded(
-                          child: Column(
-                        children: [
-                          Text('pressure in',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                          Text('${data?.pressure_in}',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                        ],
-                      )),
-                    ],
-                  ),
+                  Weatherfeatures(data: data),
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                          child: Column(
-                        children: [
-                          Text('Gust',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                          Text('${data.gust_mph}',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                        ],
-                      )),
-                      Expanded(
-                          child: Column(
-                        children: [
-                          const Text('feelslike_C',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                          Text('${data.feelslike_c}',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                        ],
-                      )),
-                      Expanded(
-                          child: Column(
-                        children: [
-                          const Text('feelslike_F',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                          Text('${data.feelslike_f}',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15)),
-                        ],
-                      )),
-                    ],
-                  ),
+                  Weatherstatics(data: data),
                 ],
               );
             }));

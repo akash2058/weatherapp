@@ -8,7 +8,13 @@ class WeatherData {
     var uricall = Uri.parse(
         'http://api.weatherapi.com/v1/current.json?key=1bc0383d81444b58b1432929200711&q=Kathmandu');
     var response = await http.get(uricall);
-    var body = jsonDecode(response.body);
-    return Weather.fromjson(body);
+    if (response.statusCode == 200) {
+      var body = jsonDecode(response.body);
+      return Weather.fromjson(body);
+    } else {
+      throw Exception('failed');
+    }
   }
 }
+
+String city = 'Kathmandu';
