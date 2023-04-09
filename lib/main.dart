@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     initialRoute: '/splash',
-    routes: {'/splash': (context) => Splashscreen()},
+    routes: {'/splash': (context) => const Splashscreen()},
     debugShowCheckedModeBanner: false,
     home: const Homepage(),
   ));
