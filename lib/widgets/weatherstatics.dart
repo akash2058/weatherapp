@@ -6,6 +6,7 @@ class Weatherstatics extends StatelessWidget {
     required this.data,
   });
 
+  // ignore: prefer_typing_uninitialized_variables
   final data;
 
   @override
@@ -15,9 +16,10 @@ class Weatherstatics extends StatelessWidget {
         Expanded(
             child: Column(
           children: [
-            Text('Gust', style: TextStyle(color: Colors.white, fontSize: 15)),
-            Text('${data.gust_mph}',
+            const Text('Gust',
                 style: TextStyle(color: Colors.white, fontSize: 15)),
+            Text('${data.gust_mph}',
+                style: const TextStyle(color: Colors.white, fontSize: 15)),
           ],
         )),
         Expanded(
@@ -26,7 +28,7 @@ class Weatherstatics extends StatelessWidget {
             const Text('feelslike_C',
                 style: TextStyle(color: Colors.white, fontSize: 15)),
             Text('${data.feelslike_c}',
-                style: TextStyle(color: Colors.white, fontSize: 15)),
+                style: const TextStyle(color: Colors.white, fontSize: 15)),
           ],
         )),
         Expanded(
@@ -35,7 +37,7 @@ class Weatherstatics extends StatelessWidget {
             const Text('feelslike_F',
                 style: TextStyle(color: Colors.white, fontSize: 15)),
             Text('${data.feelslike_f}',
-                style: TextStyle(color: Colors.white, fontSize: 15)),
+                style: const TextStyle(color: Colors.white, fontSize: 15)),
           ],
         )),
       ],
