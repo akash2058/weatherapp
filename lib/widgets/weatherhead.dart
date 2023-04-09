@@ -1,3 +1,4 @@
+import 'package:animatedapp/splashscreen/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 import '../globals/appimages.dart';
@@ -24,6 +25,16 @@ class Weatherhead extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Align(
+                alignment: Alignment.topLeft,
+                child: BackButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Splashscreen()));
+                    },
+                    color: Colors.white)),
             SizedBox(
               height: 100,
               width: 300,
